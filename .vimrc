@@ -4,18 +4,12 @@ execute pathogen#infect()
 " use the Solarized color scheme for syntax highlighting
 syntax enable
 set background=dark
-if !has("gui_running")
-  let g:solarized_termtrans=1
-else
-  set lines=35 columns=100
-endif
-
-colorscheme solarized
+colorscheme zenburn
 filetype on
 
 " use C++11 syntax file
-au BufNewFile,BufRead *.cpp set syntax=cpp11
-au BufNewFile,BufRead *.hpp set syntax=cpp11
+"au BufNewFile,BufRead *.cpp set syntax=cpp11
+"au BufNewFile,BufRead *.hpp set syntax=cpp11
 
 set showmode " show visual/normal/insert mode
 set cursorline " highlight current line
@@ -75,9 +69,13 @@ nmap <silent> // :nohlsearch<CR>
 
 " vimsneak plugin
 let g:sneak#use_ic_scs = 1 " case insensitive
+let g:sneak#streak = 1
 
 " CtrlP plugin
 let g:ctrlp_match_window = 'bottom,order:ttb'
 let g:ctrlp_switch_buffer = 0
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+" Gundo plugin
+nnoremap <F5> :GundoToggle<CR>
